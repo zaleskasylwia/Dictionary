@@ -9,10 +9,13 @@ dictionary = {"FUNCTION": ("co to f", "zrodlo f"), "PARAMETR": ("co to parametr"
                 "SLOTS": ("co to slots", "zrodlo s"),"GENERATORS": ("co to generators", "zrodlo g"),
                 "CLASSES": ("co to classes", "zrodlo cl")}
 
-with open('dictionary1.csv', 'w') as f:  
+with open('dictionary.csv', 'w') as f:  
     w = csv.DictWriter(f, dictionary.keys())
     w.writeheader()
     w.writerow(dictionary)
+    
+   
+    
     
 
 #1
@@ -34,6 +37,9 @@ def add():
     source = input()
     dictionary.update({defintion: (explenation, source)})
     print(dictionary)
+    #fd = open('dictionary.csv','a')
+    #fd.write({defintion, (explenation, source)})
+    #fd.close()
 
 
 #3
@@ -57,7 +63,7 @@ def main():
     while True:
         # read_from_csv("nazwa.csv")
         print("Dictionary for a little programmer:")
-        print("1 - serach")
+        print("1 - search")
         print("2 - add")
         print("3 - show all appellations alphabetically")
         print("4 - show all by first letter")
