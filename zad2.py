@@ -1,7 +1,7 @@
 import csv
 
-dictionary = {"FUNCTION": ("co to f", "zrodlo f"), "PARAMETR": ("co to parametr", "zrodlo p"), 
-                "VARIABLE": ("co to variable", "zrodlo v"), "ARGUMENT": ("co to argument", "zrodlo a"), 
+dictionary = {"FUNCTION": ("A series of statements which returns some value to a caller. ", "https://docs.python.org/3/glossary.html#term-function"),
+                 "PARAMETR": ("co to parametr", "zrodlo p"),"VARIABLE": ("co to variable", "zrodlo v"), "ARGUMENT": ("co to argument", "zrodlo a"), 
                 "DICTIONARY": ("co to dictionary", "zrodlo d"), "TUPLE": ("co to tuple", "zrodlo t"), 
                 "ASCII table": ("co to ascii", "zrodlo asc"),"MODULE": ("co to module", "zrodlo m"),
                 "LIST": ("co to list", "zrodlo l"),"CONDITIONAL": ("co to conditional", "zrodlo c"),
@@ -20,7 +20,7 @@ with open('dictionary.csv', 'w') as f:
 
 #1
 def search():
-    print("Tell definition would you want to find")
+    print("Enter the first letter of the definition")
     name = input().upper()
     if dictionary.get(name):
         print(dictionary.get(name))
@@ -35,11 +35,27 @@ def add():
     explenation = input()
     print("Tell me source")
     source = input()
-    dictionary.update({defintion: (explenation, source)})
+    new_row = {defintion: (explenation, source)}
+    dictionary.update(new_row) 
+    fd = open('document.csv','a')
+    fd.write(new_row)
+    fd.close()
     print(dictionary)
-    #fd = open('dictionary.csv','a')
-    #fd.write({defintion, (explenation, source)})
-    #fd.close()
+
+
+'''    print("Tell me a definition")
+    defintion = input().upper()
+    print("Tell me explenation")
+    explenation = input()
+    print("Tell me source")
+    source = input()
+    new_row = {defintion: (explenation, source)}
+    dictionary.update(new_row) 
+	fd = open('document.csv','a')
+	fd.write(new_row)
+	fd.close()
+    print(dictionary)'''
+    
 
 
 #3
