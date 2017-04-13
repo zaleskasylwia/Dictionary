@@ -14,21 +14,20 @@ import csv
     w = csv.DictWriter(f, dictionary.keys())
     w.writeheader()
     w.writerow(dictionary)
-    
-dict=[]'''
+    '''
 
-datafile = open('dictionary.csv')   #reading data from csv file
+datafile = open('dictionary.csv')   #otwiera i zczytuje dane z pliku csv
 database = datafile.readlines()
 datafile.close()
 
-database_list = [line.split(' | ') for line in database]
-dictionary = {line[0]:(line[1],line[2]) for line in database_list}   #changing string data into dictionary
+database_list = [line.split(' | ') for line in database] #dzieli je przez znak
+dictionary = {line[0]:(line[1],line[2]) for line in database_list}   #zamienia string i wpisuje do slownika
     
     
 
 #1
 def search():
-    print("Enter the first letter of the definition")
+    print("Enter the name of the definition")
     name = input().upper()
     if dictionary.get(name):
         print(dictionary.get(name))
@@ -44,13 +43,11 @@ def add():
     new_dict.append(explenation)
     source = input('Type source of information: ' '\n')
     new_dict.append(source)
-    dictionary[new_dict[0]] = (new_dict[1], new_dict[2]) #adding new definition to dictionary
-    datafile = open('dictionary.csv', 'a')  #writing new definition to the csv file
+    dictionary[new_dict[0]] = (new_dict[1], new_dict[2]) #dodaje nowa definicje do slownika
+    datafile = open('dictionary.csv', 'a')  #wrwpisuje do csv
     datafile.write(' | '.join(new_dict))
     datafile.close()
-    print(dictionary)
-
-
+    #print(dictionary)
 
 
 
