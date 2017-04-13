@@ -43,20 +43,6 @@ def add():
     print(dictionary)
 
 
-'''    print("Tell me a definition")
-    defintion = input().upper()
-    print("Tell me explenation")
-    explenation = input()
-    print("Tell me source")
-    source = input()
-    new_row = {defintion: (explenation, source)}
-    dictionary.update(new_row) 
-	fd = open('document.csv','a')
-	fd.write(new_row)
-	fd.close()
-    print(dictionary)'''
-    
-
 
 #3
 def show_all():
